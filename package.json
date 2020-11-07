@@ -1,5 +1,5 @@
 {
-  "name": "my_custom_API",
+  "name": "mycustomAPI",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
