@@ -2,19 +2,19 @@ const { Schema } = require('mongoose')
 
 module.exports = new Schema(
   {
-    gossip: {
+    name: {
       type: String,
       required: true
     },
-    image: {
+    email: {
       type: String,
+      required: true,
+      unique: true,
+      index: true
     },
-    location: {
-      String
-    },
-    user_id: {
-      type: Schema.Types.ObjectId,
-      ref: 'gg-users'
+    password_digest: {
+      type: String,
+      required: true
     }
   },
   { timestamps: true }

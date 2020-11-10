@@ -1,12 +1,12 @@
 const { GG_user, GG_blog } = require('../db/schema')
 
-const GoToGG_admin = async (req, res) => {
+const GoToGGUser = async (req, res) => {
     const user = await (await GG_user.findById(req.params.user_id)).select('_id name')
     const blogPosts = await GG_blog.find({ user_id: req.params.user_id})
     res.send({ user, blogPosts })
 }
 
-const SignInGG = async ( req, res) => {
+const SignInGGUser = async ( req, res) => {
     const user = await GG_user.findOne({ email: req.body.email })
     if (user && user.password_digest === req.body.password) {
         const payload = {
@@ -31,6 +31,6 @@ const CreateUser = async (req, res) => {
 
 module.exports = {
     CreateUser,
-    SignInGG,
-    GoToGG_admin
+    SignInGGUser,
+    GoToGGUser
 }
