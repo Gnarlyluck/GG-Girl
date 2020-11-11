@@ -4,6 +4,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const logger = require('morgan')
 const connection = require('./db/connection')
+const helmet = require('helmet')
 
 const PORT = process.env.PORT || 3001
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3001
 const app = express()
 
 app.use(logger('dev'))
+app.use(helmet())
 app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
