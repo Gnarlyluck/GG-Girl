@@ -31,3 +31,8 @@ const RemoveComment = async (req, res) => {
         throw error
     }
 }
+
+module.exports = {
+    RemoveComment,
+    CreateCommment
+}
