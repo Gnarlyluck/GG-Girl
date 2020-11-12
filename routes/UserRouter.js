@@ -1,5 +1,4 @@
 const Router = require('express').Router()
-// const { verify } = require('jsonwebtoken')
 const UserController = require('../controllers/UserController')
 const {
     createToken,

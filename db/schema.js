@@ -12,7 +12,7 @@ const Gossip = model('gossip', GossipSchema)
 const GG_blog = model('GG_blog', GG_BlogSchema)
 const Comment = model('comments', CommentSchema)
 
-module.exports = {
+module.exports = {  
     GG_admin,
     GG_user,
     Gossip,

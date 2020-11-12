@@ -25,7 +25,7 @@ module.exports = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'users'
     },
-    post: [
+    comments: [
       {
         type: Schema.Types.ObjectId,
         ref: 'comments'
