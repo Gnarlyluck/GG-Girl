@@ -1,7 +1,7 @@
-const { post } = require("../db/models/GG-user")
-const GGUser = require("../db/models/GG-user")
+// const { post } = require("../db/models/GG-user")
+// const GGUser = require("../db/models/GG-user")
 
-const { GG_blog, GGUser, Comment } = require('../db/schema')
+const { GG_blog, GG_user, Comment } = require('../db/schema')
 
 const CreatePost = async (req, res) => {
     try{
