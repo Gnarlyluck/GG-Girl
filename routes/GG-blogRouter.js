@@ -15,5 +15,5 @@ module.exports = Router
 //       "popularity_rating": 98,
 //       "description": "Chuck Bass has really fallen off the wagon after finding out about Dan and Blairs little love affair" ,
 //       "location": "The Empire, Brooklyn, New York",
-//       "comments": ["OMG can't believe he is so upset by this, he is to good for blair anyway"], "_id": "5fac6da30b9a7e6db9c25b9c"
-//     }
+//       "comments": ["OMG I can't believe he is so upset by this, he is to good for blair anyway"], "_id": "5fac6da30b9a7e6db9c25b9c"
+    // }
