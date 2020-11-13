@@ -17,3 +17,10 @@ module.exports = Router
 //       "location": "The Empire, Brooklyn, New York",
 //       "comments": ["OMG I can't believe he is so upset by this, he is to good for blair anyway"], "_id": "5fac6da30b9a7e6db9c25b9c"
     // }
+
+// "_id": "5fac6da30b9a7e6db9c25b9c"     
+// "title': "spotted, lonely boy with blair"
+// "image_url":"https://www.cheatsheet.com/wp-content/uploads/2020/08/Dan-and-Blair-1-..."
+// "popularity_rating": 102,
+// "description": "Dan humphrey and blair woldorf spotted holding hands at the met"
+// "location": "The Met"

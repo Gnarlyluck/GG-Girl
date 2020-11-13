@@ -3,14 +3,12 @@ const { GG_blog, Comment } = require('../db/schema')
 const CreateComment = async (req, res) => {
     try{
         const comment = new Comment({ ...req.body, user_id: req.params.user_id })
-        comment.save() 
-        await GG_blog.update(
+        await GG_blog.updateOne(
             {_id: req.params.post_id },
-            { $push: {
-                comments: comment
-            }
-          }
+            { $push: { comments: comment}}
         )
+        comment.save() 
+        res.send(comment)
     }catch (error) {
         throw error
     }
