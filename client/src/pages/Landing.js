@@ -11,7 +11,9 @@ const Home = (props) => {
     <Nav />
         <p>XOXO GOSSIP GIRL</p>
         <div className="img-wrapper">
-        <img src={GossipImg} alt="NY skyline with XOXO" />
+        {/* <img src={GossipImg} alt="NY skyline with XOXO" /> */}
+        < div style={{backgroundImage: `url(${GossipImg})`, backgroundSize: "center", minHeight: "100vh"}} ></div>
+
         </div>
         
   </div>
