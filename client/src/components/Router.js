@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import Landing from '../pages/Landing'
-import SignIn from '../pages/Signin'
-import SignUp from '../pages/Signup'
+import SignIn from '../pages/SignIn'
+import SignUp from '../pages/SignUp'
 import Home from '../pages/Home'
 import { __CheckSession } from '../services/UserServices'
-
 import ProtectedRoute from './ProtectedRoute'
 
 
@@ -74,7 +73,7 @@ class Router extends Component {
                     <h3>Loading...</h3>
                   ) : (
                     <Switch>
-                        <Route  exact path="/" 
+                        {/* <Route  exact path="/" 
                             component={(props) => (
                                 <Landing>
                                     <Home {...props}/>
@@ -87,7 +86,12 @@ class Router extends Component {
                                 {...props}/>
                             </Landing>
                         )}
-                        />
+                        /> */}
+                    <Route exact path='/' component={Landing}/>
+                    <Route path='/SignIn' component={SignIn}/>
+                    <Route path='/SignUp' component={SignUp}/>
+                    <Route path='/Home' component={Home}/>
+                   
                     </Switch>
                   )}
               </main>
