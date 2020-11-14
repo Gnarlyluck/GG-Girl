@@ -3,8 +3,9 @@ const PostController = require('../controllers/PostController')
 
 Router.post('/:user_id', PostController.CreatePost)
 Router.put('/:post_id', PostController.UpdatePost)
+//only allow from profile page
 Router.delete('/:post_id', PostController.DeletePost)
-
+//only allow user to delete from profile page
 module.exports = Router
 
 
@@ -16,7 +17,7 @@ module.exports = Router
 //       "description": "Chuck Bass has really fallen off the wagon after finding out about Dan and Blairs little love affair" ,
 //       "location": "The Empire, Brooklyn, New York",
 //       "comments": ["OMG I can't believe he is so upset by this, he is to good for blair anyway"], "_id": "5fac6da30b9a7e6db9c25b9c"
-    // }
+//     }
 
 // "_id": "5fac6da30b9a7e6db9c25b9c"     
 // "title': "spotted, lonely boy with blair"

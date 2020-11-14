@@ -15,17 +15,19 @@ const CreatePost = async (req, res) => {
 
 const DeletePost = async (req, res) => {
     try {
-        await Comment.deleteMany({ _id: { $in: post.comments } })
-        await GG_blog.findByIdAndUpdate(req.params.post_id)
-        res.send({ msg: 'This one is safe, for now...'})
-    } catch (error){
-        throw error
+      const post = await GG_blog.findById(req.params.post_id)
+      await Comment.deleteMany({ _id: { $in: post.comments } })
+      await GG_blog.findByIdAndDelete(req.params.post_id)
+      res.send({ msg: 'Post deleted' })
+    } catch (error) {
+      throw error
     }
-}
+  }
+
 
 const UpdatePost = async (req, res) => {
     try {
-        await GG_blog.findByIdAndUpdate(
+       const updatedPost = await GG_blog.findByIdAndUpdate(
             req.params.post_id,
             {
                 ...req.body
@@ -33,6 +35,7 @@ const UpdatePost = async (req, res) => {
             { new: true, useFindAndModify: false },
            // (err, (d) => (err ? err : res.send(d)))
         )
+        res.send(updatedPost)
     } catch (error) {
         throw error
     }

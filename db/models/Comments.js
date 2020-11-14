@@ -8,7 +8,8 @@ module.exports = new Schema(
     },
     user_id: {
       type: Schema.Types.ObjectId,
-      ref: 'gg-users'
+      ref: 'users'
+      //changed gg-user to user
     }
   },
   { timestamps: true }

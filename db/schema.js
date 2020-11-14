@@ -10,6 +10,7 @@ const Comment = model('comments', CommentSchema)
 
 module.exports = {  
     GG_user,
+   
     GG_blog,
     Comment
 }
