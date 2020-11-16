@@ -36,33 +36,29 @@ class AllGossip extends Component {
           <div >
               
             <h2>Popular Posts</h2>
-            <section >
+            <section className="row">
               {posts.length ? (
                 posts.map((post) => (
-                  <div
+                <div className="col s6" 
                     key={post._id}
                     onClick={() => this.props.history.push(`/Gossip/${post._id}`)}>
-                    <div >
-                      <div >
-                        <div >
-                          <h3>{post.title}</h3>
-                          <p>{post.description.substring(0, 550)}...</p>
-                        </div>
-                        <div >
-                          <div >
+                        <div className="card">
+                          <div classN ame="card-image">
+                            <img  src={post.image_url} alt="post"/>
+                            <span className="card-title">{post.title}</span>
+                          </div>
+                          <div className="card-content">
+                            <p>{post.description.substring(0, 550)}...</p>
+                          </div>
+                          <div className="card-action">
                             <p>Comments</p>
                             <p>{post.comments.length}</p>
-                          </div>
-                          <div >
                             <p>Likes</p>
                             <p>{post.popularity_rating}</p>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <img src={post.image_url} alt="post"/>
                   </div>
-                ))
+                      ))
               ) : (
                 <h3>No Posts</h3>
               )}
