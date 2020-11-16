@@ -6,7 +6,8 @@ const GetPosts = async (req, res) => {
     try {
       
       const posts = await GG_blog.find()
-        .sort({ popularity_rating: 'desc' })
+        // .sort({ popularity_rating: 'desc' })
+        console.log(posts, 'give it to me')
       res.send(posts)
     } catch (error) {
       console.log("get it")
@@ -14,15 +15,15 @@ const GetPosts = async (req, res) => {
     }
   }
 
-// const CreatePost = async (req, res) => {
-//     try{
-//         const newPost = new GG_blog({ ...req.body, user_id: req.params.user_id })
-//         newPost.save()
-//         res.send(newPost)
-//     } catch (error) {
-//         throw error
-//     }
-// }
+const CreatePost = async (req, res) => {
+    try{
+        const newPost = new GG_blog({ ...req.body, user_id: req.params.user_id })
+        newPost.save()
+        res.send(newPost)
+    } catch (error) {
+        throw error
+    }
+}
 
 const GetPostById = async (req, res) => {
     try {
@@ -86,7 +87,7 @@ const AddPost = async (request, response) => {
   }
 }
 module.exports = {
-    // CreatePost,
+    CreatePost,
     DeletePost,
     UpdatePost,
     GetPostById,

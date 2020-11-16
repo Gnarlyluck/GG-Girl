@@ -21,10 +21,10 @@ module.exports = new Schema(
     location: {
       type: String
     },
-    // user_id: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'users'
-    // },
+    user_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'users'
+    },
     comments: [
       {
         type: Schema.Types.ObjectId,

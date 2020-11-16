@@ -1,9 +1,9 @@
 const Router = require('express').Router()
 const PostController = require('../controllers/PostController')
 
-Router.get('/', PostController.GetPosts)
+Router.get('/all', PostController.GetPosts)
 Router.get('/:post_id', PostController.GetPostById)
-// Router.post('/:user_id', PostController.CreatePost)
+Router.post('/:user_id', PostController.CreatePost)
 Router.put('/:post_id', PostController.UpdatePost)
 //only allow from profile page
 Router.delete('/:post_id', PostController.DeletePost)
