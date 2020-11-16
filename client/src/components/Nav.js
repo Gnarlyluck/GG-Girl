@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom'
 const Nav = ({ authenticated, currentUser, className}) => {
   return( authenticated && currentUser ? (
     <header className={className}>
+      <div className="icon">Welcome Back {currentUser.name}</div>
       <nav>
         <div class="nav-wrapper">
         
           <Link  exact to='/' className="brand-logo">Home</Link >
             <ul className="right hide-on-med-and-down">
-              <li><Link to="/profile" className="nav-active btn" > Profile</Link></li>
+            <li><Link to="/Profile" className="nav-active btn" > Profile</Link></li>
               <li><Link to="/AllGossip" className="nav-active btn">Gossip <i className="material-icons right">cloud</i></Link ></li>
               <li><Link to="/upload" className="nav-active btn-large">Create Post</Link ></li>
               <li><Link to="/" onClick={() => localStorage.clear()} className="nav-active">Sign Out</Link></li>
