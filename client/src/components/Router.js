@@ -18,6 +18,13 @@ class Router extends Component {
             pageLoading: true
         }
     }
+
+
+    componentDidMount() {
+        this.verifyTokenValid()
+        this.setState({ pageLoading: false})
+    }
+
     verifyTokenValid = async () => {
         const token = localStorage.getItem('token')
         if (token) {
@@ -38,11 +45,6 @@ class Router extends Component {
 
     toggleAuthenticated = (value, user, done) => {
         this.setState({ authenticated: value, currentUser: user }, () => done())
-    }
-
-    componentDidMount() {
-        this.verifyTokenValid()
-        this.setState({ pageLoading: false})
     }
 
     verifyTokenValid = async () => {
@@ -75,7 +77,9 @@ class Router extends Component {
                   ) : (
                     <Switch>
                         {<Route  exact path="/" 
-                            component={(props) => (<Landing />)}/> }
+                            component={() => 
+                            (<Landing />)}
+                            /> }
                         <Route path="/SignIn" component={(props) => (
                                  <SignIn toggleAuthenticated={this.toggleAuthenticated}
                                  {...props}/>)}
@@ -83,20 +87,13 @@ class Router extends Component {
                         <Route path="/SignUp" component={(props) => (
                             <SignUp {...props} />)}
                              />
-                        <Route path="/Gossip" component={(props) => (
+                        <Route path="/Gossip/:post_id" component={(props) => (
                             <Gossip  {...props} />)} 
                             />
                           <Route path="/AllGossip" component={(props) => (
                             <AllGossip  {...props} />)} 
                             />
-                
-                        {/* <Route path="/Gossip/:post_id" component={(props) => (
-                            <Gossip {...props} />)} 
-                            />
-                        */}
-                       
-                   
-                    //</Switch>
+                    </Switch>
                   )}
               </main>
           )
