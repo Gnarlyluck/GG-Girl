@@ -1,4 +1,5 @@
 const { GG_user, GG_blog } = require('../db/schema')
+const jwt = require ('jsonwebtoken')
 const {
     checkPassword,
     generatePassword
