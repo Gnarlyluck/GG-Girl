@@ -23,7 +23,7 @@ export default class Signup extends Component {
     e.preventDefault()
     try {
       await __RegisterUser(this.state)
-      this.props.history.push('/')
+      this.props.history.push('/profile')
     } catch (error) {
       console.log(error)
     }
