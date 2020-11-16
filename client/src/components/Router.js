@@ -6,6 +6,7 @@ import SignUp from '../pages/SignUp'
 import Gossip from '../pages/Gossip'
 import { __CheckSession } from '../services/UserServices'
 import ProtectedRoute from './ProtectedRoute'
+import AllGossip from '../pages/AllGossip'
 
 
 class Router extends Component {
@@ -74,27 +75,26 @@ class Router extends Component {
                   ) : (
                     <Switch>
                         {<Route  exact path="/" 
-                            component={(props) => (
-                                    <Landing />
-                                    )}
-                         /> }
-                       
-                        
+                            component={(props) => (<Landing />)}/> }
                         <Route path="/SignIn" component={(props) => (
                                  <SignIn toggleAuthenticated={this.toggleAuthenticated}
                                  {...props}/>)}
                                  /> 
                         <Route path="/SignUp" component={(props) => (
-                            <SignUp {...props} />
-                        )} />
+                            <SignUp {...props} />)}
+                             />
                         <Route path="/Gossip" component={(props) => (
-                            <Gossip {...props} />
-                        )} />
+                            <Gossip  {...props} />)} 
+                            />
+                          <Route path="/AllGossip" component={(props) => (
+                            <AllGossip  {...props} />)} 
+                            />
+                
+                        {/* <Route path="/Gossip/:post_id" component={(props) => (
+                            <Gossip {...props} />)} 
+                            />
+                        */}
                        
-                    //{/* <Route exact path='/' component={Landing}/>
-                    //<Route path='/SignIn' component={SignIn}/>
-                    //<Route path='/SignUp' component={SignUp}/>
-                    //<Route path='/Gossip' component={Gossip}/> */}
                    
                     //</Switch>
                   )}
@@ -104,3 +104,8 @@ class Router extends Component {
 }
 
 export default withRouter(Router)
+
+    // <Route exact path='/' component={Landing}/>
+                    //<Route path='/SignIn' component={SignIn}/>
+                    //<Route path='/SignUp' component={SignUp}/>
+                    //<Route path='/Gossip' component={Gossip}/> }

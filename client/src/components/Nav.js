@@ -24,7 +24,7 @@ const Nav = ({ authenticated, currentUser, className}) => {
           <div className="nav-wrapper">
             <Link exact to='/' className="brand-logo">Home</Link>
               <ul className="right hide-on-med-and-down">
-                <li> <Link className="nav-active btn" to="/Gossip">Gossip</Link></li>
+                <li> <Link className="nav-active btn" to="/AllGossip">Gossip</Link></li>
                 <li> <Link className="nav-active btn" to="/SignUp">Sign Up<i className="material-icons right">cloud</i></Link> </li>
                 <li><Link className="nav-active btn" to="/SignIn">Sign In</Link></li>
               </ul>
