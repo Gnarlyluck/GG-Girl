@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Nav from '../components/Nav';
 import { __GetPosts} from '../services/PostServices'
 
 
@@ -35,7 +34,7 @@ class AllGossip extends Component {
         const { posts } = this.state
         return (
           <div >
-              <Nav />
+              
             <h2>Popular Posts</h2>
             <section >
               {posts.length ? (
