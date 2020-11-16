@@ -7,7 +7,10 @@ import Gossip from '../pages/Gossip'
 import { __CheckSession } from '../services/UserServices'
 import ProtectedRoute from './ProtectedRoute'
 import AllGossip from '../pages/AllGossip'
-
+import Profile from '../pages/Profile'
+import UploadPage from '../pages/UploadPage'
+import Edit from '../pages/Edit'
+import Layout from './Layout'
 
 class Router extends Component {
     constructor () {
@@ -34,7 +37,7 @@ class Router extends Component {
                     {
                         currentUser: session,
                         authenticated: true
-                    }, () => this.props.history.push('/profile')
+                    }, () => this.props.history.push(window.location.pathname)
                 )
             }catch (error){
                 this.setState({ currentUser: null, authenticated: false })
@@ -47,28 +50,6 @@ class Router extends Component {
         this.setState({ authenticated: value, currentUser: user }, () => done())
     }
 
-    verifyTokenValid = async () => {
-        const token = localStorage.getItem('token')
-        if (token) {
-            try {
-                const session = await __CheckSession()
-                console.log('session', session)
-                this.setState(
-                    { currentUser: session.user, authenticated: true},
-                    () => this.props.history.push('/profile')
-                )
-            }catch (error) {
-                this.setState({ currentUser: null, authenticated: false })
-                localStorage.clear()
-            }
-        } 
-    }
-
-    toggleAuthenticated = (value, user, done) => {
-        this.setState({ authenticated: value, currentUser: user }, () => done())
-      }
-
-
       render() {
           return (
               <main>
@@ -76,8 +57,7 @@ class Router extends Component {
                     <h3>Loading...</h3>
                   ) : (
                     <Switch>
-                        {<Route  exact path="/" 
-                            component={() => 
+                        {<Route  exact path="/" component={() => 
                             (<Landing />)}
                             /> }
                         <Route path="/SignIn" component={(props) => (
@@ -88,11 +68,62 @@ class Router extends Component {
                             <SignUp {...props} />)}
                              />
                         <Route path="/Gossip/:post_id" component={(props) => (
-                            <Gossip  {...props} />)} 
-                            />
-                          <Route path="/AllGossip" component={(props) => (
-                            <AllGossip  {...props} />)} 
-                            />
+                           <Layout
+                           currentUser={this.state.currentUser}
+                           authenticated={this.state.authenticated}
+                         >
+                          <Gossip  {...props} />
+                          </Layout>
+                          )}   />
+                        <Route path="/AllGossip" component={(props) => (
+                             <Layout
+                             currentUser={this.state.currentUser}
+                             authenticated={this.state.authenticated}
+                           >
+                            <AllGossip  {...props} /> 
+                           </Layout>
+                            )}  />
+                        <ProtectedRoute authenticated={this.state.authenticated}
+                         path="/Profile" component={(props) => (
+                             <Layout
+                             currentUser={this.state.currentUser}
+                             authenticated={this.state.authenticated}
+                           >
+                            <Profile {...props} currentUser={this.state.currentUser}/>
+                            </Layout>
+                        )} />
+                        <ProtectedRoute authenticated={this.state.authenticated}
+                         path="/upload" component={(props) => (
+                             <Layout
+                             currentUser={this.state.currentUser}
+                             authenticated={this.state.authenticated}
+                           >
+                            <UploadPage {...props} currentUser={this.state.currentUser}/>
+                            </Layout>
+                        )} />
+                        <ProtectedRoute authenticated={this.state.authenticated}
+                         path="/upload" component={(props) => (
+                             <Layout
+                             currentUser={this.state.currentUser}
+                             authenticated={this.state.authenticated}
+                           >
+                            <UploadPage {...props} currentUser={this.state.currentUser}/>
+                            </Layout>
+                        )} />
+                         <ProtectedRoute authenticated={this.state.authenticated}
+                         path="/edit/:post_id" component={(props) => (
+                             <Layout
+                             currentUser={this.state.currentUser}
+                             authenticated={this.state.authenticated}
+                           >
+                            <Profile>
+                            <Edit 
+                            {...props} currentUser={this.state.currentUser}/>
+                            </Profile>
+                            </Layout>
+                        )} />
+
+
                     </Switch>
                   )}
               </main>
@@ -101,8 +132,3 @@ class Router extends Component {
 }
 
 export default withRouter(Router)
-
-    // <Route exact path='/' component={Landing}/>
-                    //<Route path='/SignIn' component={SignIn}/>
-                    //<Route path='/SignUp' component={SignUp}/>
-                    //<Route path='/Gossip' component={Gossip}/> }
