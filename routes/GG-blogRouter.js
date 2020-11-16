@@ -1,11 +1,14 @@
 const Router = require('express').Router()
 const PostController = require('../controllers/PostController')
 
-Router.post('/:user_id', PostController.CreatePost)
+Router.get('/', PostController.GetPosts)
+Router.get('/:post_id', PostController.GetPostById)
+// Router.post('/:user_id', PostController.CreatePost)
 Router.put('/:post_id', PostController.UpdatePost)
 //only allow from profile page
 Router.delete('/:post_id', PostController.DeletePost)
 //only allow user to delete from profile page
+Router.post('/add', PostController.AddPost)
 module.exports = Router
 
 
@@ -19,9 +22,9 @@ module.exports = Router
 //       "comments": ["OMG I can't believe he is so upset by this, he is to good for blair anyway"], "_id": "5fac6da30b9a7e6db9c25b9c"
 //     }
 
-// "_id": "5fac6da30b9a7e6db9c25b9c"     
-// "title': "spotted, lonely boy with blair"
-// "image_url":"https://www.cheatsheet.com/wp-content/uploads/2020/08/Dan-and-Blair-1-..."
-// "popularity_rating": 102,
-// "description": "Dan humphrey and blair woldorf spotted holding hands at the met"
-// "location": "The Met"
+    // "_id": "5fac6da30b9a7e6db9c25b9c"     
+    // "title': "spotted, lonely boy with blair"
+    // "image_url":"https://www.cheatsheet.com/wp-content/uploads/2020/08/Dan-and-Blair-1-..."
+    // "popularity_rating": 102,
+    // "description": "Dan humphrey and blair woldorf spotted holding hands at the met"
+    // "location": "The Met"

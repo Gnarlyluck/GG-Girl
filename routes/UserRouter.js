@@ -6,7 +6,7 @@ const {
     getToken,
 } = require('../middleware/JwtHandler')
 
-Router.get('/:user_id', UserController.getUser)
+Router.get('/:user_id', UserController.GetProfile)
 Router.post('/register', UserController.CreateUser)
 Router.post('/login', UserController.SignInGGUser, createToken)
 Router.get(

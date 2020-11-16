@@ -4,11 +4,11 @@ const {
     generatePassword
 } = require('../middleware/PasswordHandler')
 
-const getUser = async (req, res) => {
+const GetProfile = async (req, res) => {
     try {
     const user = await (await GG_user.findById(req.params.user_id)).select('_id name')
-    const blogPosts = await GG_blog.find({ user_id: req.params.user_id})
-    res.send({ user, blogPosts })
+    const posts = await GG_blog.find({ user_id: req.params.user_id})
+    res.send({ user, posts })
   } catch (error) {
       throw error
   }
@@ -61,6 +61,6 @@ const RefreshSession = (req, res) => {
 module.exports = {
     CreateUser,
     SignInGGUser,
-    getUser,
+    GetProfile,
     RefreshSession
 }
