@@ -16,7 +16,7 @@ export default class Gossip extends Component {
         this.getPost()
       }
     
-      getPost = async (props) => {
+      getPost = async () => {
         console.log('hello')
         try {
           const post = await __GetPost(this.props.match.params.post_id)
@@ -27,11 +27,56 @@ export default class Gossip extends Component {
       }
 
       render(){
-        return (
-          <div></div>
-        )
+        const { post } = this.state
+        if (this.state.post) {
+          console.log(this.state.post)
+          return (
+            <div>
+            <Nav />
+              <div >
+                <div >
+                  <div >
+                    <img src={post.image_url} alt="post" />
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <h2>{post.title}</h2>
+                    <p>{post.description}</p>
+                    <div>
+                      <div>
+                        <p>Likes</p>
+                        <p>{post.popularity_rating}</p>
+                      </div>
+                      <div>
+                        <p>Comments</p>
+                        <p>{post.comments.length}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    {post.comments.length ? (
+                      post.comments.map((comment) => (
+                        <li className="comment-item" key={comment._id}>
+                          <p>
+                            <Link>{comment.user_id.name}</Link>
+                          </p>
+                          <p>{comment.comment}</p>
+                        </li>
+                      ))
+                    ) : (
+                      <h3>No Comments</h3>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
         }
+        return <h3>Loading...</h3>
       }
+    }
+    
        
 // const Home = (props) => {
 //    return (
