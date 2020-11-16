@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Nav from '../components/Nav'
 import { Link } from 'react-router-dom'
 import { __GetPost } from '../services/PostServices'
 
@@ -32,7 +31,6 @@ export default class Gossip extends Component {
           console.log(this.state.post)
           return (
             <div>
-            <Nav />
               <div >
                 <div >
                   <div >
