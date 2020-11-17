@@ -33,8 +33,7 @@ class AllGossip extends Component {
       render() {
         const { posts } = this.state
         return (
-          <div >
-              
+          <div className="AllGossip">
             <h2>Popular Posts</h2>
             <section className="row">
               {posts.length ? (
@@ -43,7 +42,7 @@ class AllGossip extends Component {
                     key={post._id}
                     onClick={() => this.props.history.push(`/Gossip/${post._id}`)}>
                         <div className="card">
-                          <div classN ame="card-image">
+                          <div className="card-image">
                             <img  src={post.image_url} alt="post"/>
                             <span className="card-title">{post.title}</span>
                           </div>

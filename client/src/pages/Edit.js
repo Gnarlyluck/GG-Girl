@@ -37,9 +37,9 @@ class Edit extends Component {
    }
 
    handleSubmit = async (event) => {
-    //    event.preventDefault()
+       event.preventDefault()
        try{
-           await __UpdatePost(this.setState.state, this.props.match.params.post_id)
+           await __UpdatePost(this.state, this.props.match.params.post_id)
            this.props.history.push('/profile')
        } catch (error) {
            throw error
