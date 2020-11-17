@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom'
 const Nav = ({ authenticated, currentUser, className}) => {
   return( authenticated && currentUser ? (
     <header className={className}>
-      <div className="icon">Welcome Back {currentUser.name}</div>
+      <div className="icon">Welcome Back {currentUser.name} XOXO</div>
       <nav>
         <div class="nav-wrapper black">
-        
           <Link  exact to='/' className="brand-logo">Home</Link >
             <ul className="right hide-on-med-and-down">
             <li><Link to="/profile" className="nav-active btn pink darken-4" > Profile<i className="material-icons right">local_bar</i></Link></li>
