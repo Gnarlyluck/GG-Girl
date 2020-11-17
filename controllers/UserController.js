@@ -7,7 +7,7 @@ const {
 
 const GetProfile = async (req, res) => {
     try {
-    const user = await (await GG_user.findById(req.params.user_id)).select('_id name')
+    const user = await  GG_user.findById(req.params.user_id).select('_id name')
     const posts = await GG_blog.find({ user_id: req.params.user_id})
     res.send({ user, posts })
   } catch (error) {

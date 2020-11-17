@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import { __RegisterUser } from '../services/UserServices'
-import Nav from '../components/Nav'
 
 
 export default class Signup extends Component {
@@ -32,7 +31,6 @@ export default class Signup extends Component {
     const { name, password, email } = this.state
     return (
       <div>
-        <Nav />
         <form onSubmit={this.handleSubmit}>
           <TextInput
             placeholder="Your Email"
