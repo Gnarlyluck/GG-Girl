@@ -30,7 +30,8 @@ class UploadPage extends Component {
     render() {
         const{ title, location, image_url, description } = this.state
        return (
-           <div>
+        <div className="upload">
+          <div>
                <form onSubmit={this.handleSubmit}>
                    <TextInput 
                    name="title"
@@ -57,9 +58,12 @@ class UploadPage extends Component {
                    placeholder="Description"
                    fieldType="textfield"
                    />
-                   <button>Upload</button>
+                   <button className="btn waves-effect waves-light pink darken-4" type="submit" name="action" > 
+                      <i className="material-icons right">send</i>Upload</button>
                </form>
            </div>
+           
+        </div>
        )
    }
 }

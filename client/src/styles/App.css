@@ -3,10 +3,21 @@
     height: 100vh;
     background-size: cover;
 } 
-/* .AllGossip {
-    background-color: black;
-    color: white
-} */
+.profile {
+    background-image: url(https://cdn.hipwallpaper.com/i/60/9/eLQcG4.jpg);
+}
+.AllGossip {
+    background-image: url(https://cdn.hipwallpaper.com/i/60/9/eLQcG4.jpg);
+}
+.Gossip{
+    background-image: url(https://cdn.hipwallpaper.com/i/60/9/eLQcG4.jpg);
+}
+.upload {
+    background-image: url(https://cdn.hipwallpaper.com/i/60/9/eLQcG4.jpg);
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
+}
+
 .datTag {
     margin: 0 auto;
     font-size: 22px;
@@ -21,6 +32,13 @@
     background-color: black;
     color: white;
     font: 18px;
+}
+.pop {
+    margin: 0 auto;
+    color: white;
+}
+.card-content {
+
 }
 /* *{
     border: red 2px solid;
