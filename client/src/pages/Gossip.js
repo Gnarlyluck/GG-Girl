@@ -28,45 +28,36 @@ export default class Gossip extends Component {
       render(){
         const { post } = this.state
         if (this.state.post) {
-          console.log(this.state.post)
           return (
-            <div>
-              <div >
-                <div >
-                  <div >
-                    <img src={post.image_url} alt="post" />
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <h2>{post.title}</h2>
-                    <p>{post.description}</p>
-                    <div>
-                      <div>
-                        <p>Likes</p>
-                        <p>{post.popularity_rating}</p>
-                      </div>
+            <div style={{backgroundImage: 'url https://www.photocircle.net/eu/photos/thumbnails/zoom/80217-Manhattan-skyline-at-night--by-jan-becke.jpg'}}>
+              <div className="row"> 
+                <div className="col s6  ">
+                  <div className="card">
+                    <div className="card-image">
+                      <img src={post.image_url} alt="post" />
+                      <h2>{post.title}</h2>
+                    </div>
+                    <div className="card-content">
+                      <p>{post.description}</p>
+                    </div>
                       <div>
                         <p>Comments</p>
                         <p>{post.comments.length}</p>
+                        <p>Likes</p>
+                        <p>{post.popularity_rating}</p>
                       </div>
-                    </div>
                   </div>
-                  <div>
                     {post.comments.length ? (
                       post.comments.map((comment) => (
                         <li className="comment-item" key={comment._id}>
-                          <p>
-                            <Link>{comment.user_id.name}</Link>
-                          </p>
+                          <p><Link>{comment.user_id.name}</Link></p>
                           <p>{comment.comment}</p>
                         </li>
                       ))
-                    ) : (
-                      <h3>No Comments</h3>
-                    )}
+                      ) : (
+                        <h3>No Comments</h3>
+                      )}
                   </div>
-                </div>
               </div>
             </div>
           )
@@ -75,16 +66,3 @@ export default class Gossip extends Component {
       }
     }
     
-       
-// const Home = (props) => {
-//    return (
-//        <div>
-//            <Nav />
-//            <h1>
-//                Homepage!
-//            </h1>
-//        </div>
-//    )
-// }
-
-// export default Home
