@@ -36,30 +36,29 @@ export default class Profile extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
-      <div>
-        <div>
+      <div className="profile">
+        <div className="Profile row">
           {this.state.posts.length ? (
             <div>
               {this.state.posts.map((post) => (
-                <div key={post._id}>
-                  <div
-                    onClick={() => this.props.history.push(`/AllGossip/${post._id}`)}>
-                    <div>
-                      <div>
-                        <h3>{post.title}</h3>
-                        <p>{post.description}</p>
-                      </div>
+                <div className="col s5" key={post._id}
+                onClick={() => this.props.history.push(`/Gossip/${post._id}`)}>
+                  <div className="card">
+                    <div className="card-image">
+                      <img src={post.image_url} alt="post" minHeight="25vh"/>
+                      <h3 className="card-title" >{post.title}</h3>
+                      <p className="card-content">{post.description}</p>
                     </div>
-                    <img src={post.image_url} alt="post" />
                   </div>
-                  <div>
-                    <button onClick={() => this.props.history.push(`/edit/${post._id}`)}>
-                      Edit
+                  <div className="card-content">
+                    <button  onClick={() => this.props.history.push(`/edit/${post._id}`)}
+                      className="btn waves-effect waves-light pink darken-4" type="submit" name="action" >Edit
+                      <i className="material-icons right">send</i>
                     </button>
-                    <button onClick={() => this.deletePost(post._id)}>
-                      Delete
+                    <button  onClick={() => this.deletePost(post._id)}
+                      className="btn waves-effect waves-light pink darken-4" type="submit" name="action" >Delete
+                      <i className="material-icons right">send</i>
                     </button>
                   </div>
                 </div>

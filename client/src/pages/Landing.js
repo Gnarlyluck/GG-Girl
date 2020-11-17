@@ -1,8 +1,6 @@
 import React from 'react'
-import GossipImg from '../img-file/gg-background.jpg'
 import '../styles/App.css'
 
-// style={{backgroundImage: `url(${GossipImg})`, backgroundSize: "cover", minHeight: "100vh"}}
 
 const Home = (props) => {
   return (
