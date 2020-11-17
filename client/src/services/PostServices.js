@@ -41,6 +41,7 @@ export const __GetPost = async (postId) => {
 export const __UpdatePost = async (formData, postId) => {
   try {
     const res = await ApiClient.put(`/posts/${postId}?active=true`, formData)
+    console.log(res.data)
     return res.data
   } catch (error) {
     throw error

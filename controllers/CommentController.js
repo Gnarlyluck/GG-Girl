@@ -2,13 +2,21 @@ const { GG_blog, Comment } = require('../db/schema')
 
 const CreateComment = async (req, res) => {
     try{
-        const comment = new Comment({ ...req.body, user_id: req.params.user_id })
+        const comment = new Comment({ ...req.body, user_id: req.params.user_id, post_id: req.params.post_id })
         await GG_blog.updateOne(
             {_id: req.params.post_id },
             { $push: { comments: comment}}
         )
         comment.save() 
         res.send(comment)
+    }catch (error) {
+        throw error
+    }
+}
+const ShowComment = async (req, res) => {
+    try{
+        const comments = await Comment.find({ post_id: req.params.post_id})
+        res.send(comments)
     }catch (error) {
         throw error
     }
@@ -43,5 +51,6 @@ const UpdateComment = async (req, res) => {
 module.exports = {
     CreateComment,
     RemoveComment, 
-    UpdateComment
+    UpdateComment,
+    ShowComment
 }

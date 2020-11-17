@@ -10,7 +10,12 @@ module.exports = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'users'
       //changed gg-user to user
+    },
+    post_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'gg_blogPosts'
     }
+  
   },
   { timestamps: true }
 )
