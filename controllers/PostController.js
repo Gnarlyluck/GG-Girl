@@ -1,5 +1,3 @@
-
-
 const { GG_blog, GG_user, Comment } = require('../db/schema')
 
 const GetPosts = async (req, res) => {
@@ -68,9 +66,9 @@ const UpdatePost = async (req, res) => {
                 ...req.body
             },
             { new: true, useFindAndModify: false },
-           // (err, (d) => (err ? err : res.send(d)))
-        )
-        res.send(updatedPost)
+            //  (err, (d) => (err ? err : res.send(d)))
+            )
+            res.send(updatedPost)
     } catch (error) {
         throw error
     }
