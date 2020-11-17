@@ -11,6 +11,7 @@ import Profile from '../pages/Profile'
 import UploadPage from '../pages/UploadPage'
 import Edit from '../pages/Edit'
 import Layout from './Layout'
+import Comments from "../pages/Comments"
 
 class Router extends Component {
     constructor () {
@@ -73,7 +74,7 @@ class Router extends Component {
                              />
                         <Route path="/Gossip/:post_id" component={(props) => (
                           
-                          <Gossip  {...props} />
+                          <Gossip  {...props} currentUser={this.state.currentUser}/>
                           )}   />
                         <Route path="/AllGossip" component={(props) => (
                             
@@ -83,6 +84,11 @@ class Router extends Component {
                          path="/profile" component={(props) => (
                            
                             <Profile {...props} currentUser={this.state.currentUser}/>
+                        )} />
+                         <ProtectedRoute authenticated={this.state.authenticated}
+                         path="/comments" component={(props) => (
+                           
+                            <Comments {...props} currentUser={this.state.currentUser}/>
                         )} />
                         <ProtectedRoute authenticated={this.state.authenticated}
                          path="/upload" component={(props) => (
