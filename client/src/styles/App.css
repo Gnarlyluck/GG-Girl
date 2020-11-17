@@ -1,0 +1,27 @@
+ .mainBackground {
+    background: url(http://wallpapershdnow.com/images/tv-shows/drama/gossip-girl/gossip-girl-wallpaper-9.jpg);
+    height: 100vh;
+    background-size: cover;
+} 
+/* .AllGossip {
+    background-color: black;
+    color: white
+} */
+.datTag {
+    margin: 0 auto;
+    font-size: 22px;
+    
+}
+.welcome{
+    margin: 0 auto;
+    font-size: 42px;
+    color: #3483F6
+}
+.icon {
+    background-color: black;
+    color: white;
+    font: 18px;
+}
+/* *{
+    border: red 2px solid;
+} */
