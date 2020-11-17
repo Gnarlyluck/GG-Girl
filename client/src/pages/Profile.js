@@ -17,8 +17,8 @@ export default class Profile extends Component {
 
   getPosts = async () => {
     try {
-      console.log(this.props)
-      const profileData = await __GetProfile(this.props.currentUser._id)
+      
+      const profileData = await __GetProfile(this.props.currentUser.user._id)
       this.setState({ posts: profileData.posts })
     } catch (error) {
       this.setState({ postFetchError: true })
@@ -31,11 +31,12 @@ export default class Profile extends Component {
       this.setState({ posts: postsToKeep })
       await __DeletePost(id)
     } catch (error) {
-      console.log(error)
+     throw error
     }
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <div>
@@ -44,10 +45,7 @@ export default class Profile extends Component {
               {this.state.posts.map((post) => (
                 <div key={post._id}>
                   <div
-                    onClick={() =>
-                      this.props.history.push(`/AllGossip/${post._id}`)
-                    }
-                  >
+                    onClick={() => this.props.history.push(`/AllGossip/${post._id}`)}>
                     <div>
                       <div>
                         <h3>{post.title}</h3>
@@ -57,11 +55,7 @@ export default class Profile extends Component {
                     <img src={post.image_url} alt="post" />
                   </div>
                   <div>
-                    <button
-                      onClick={() =>
-                        this.props.history.push(`/edit/${post._id}`)
-                      }
-                    >
+                    <button onClick={() => this.props.history.push(`/edit/${post._id}`)}>
                       Edit
                     </button>
                     <button onClick={() => this.deletePost(post._id)}>
@@ -72,7 +66,7 @@ export default class Profile extends Component {
               ))}
             </div>
           ) : (
-            <div>No Posts</div>
+            <div>No Gossip, Yet...</div>
           )}
         </div>
       </div>
