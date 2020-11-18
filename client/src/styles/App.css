@@ -2,11 +2,17 @@
     background: url(http://wallpapershdnow.com/images/tv-shows/drama/gossip-girl/gossip-girl-wallpaper-9.jpg);
     height: 100vh;
     background-size: cover;
+    margin-bottom: 40px;
 } 
 .profile {
     background-image: url(https://cdn.hipwallpaper.com/i/60/9/eLQcG4.jpg);
+    background-size: 100vh;;
+    margin-top: 65px;
 }
+
 .AllGossip {
+  margin-top: 65px;
+  
     background-image: url(https://cdn.hipwallpaper.com/i/60/9/eLQcG4.jpg);
 }
 .Gossip{
@@ -14,9 +20,10 @@
 }
 .upload {
     background-image: url(https://cdn.hipwallpaper.com/i/60/9/eLQcG4.jpg);
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+
 }
+
 .signIn{
     background-image: url(https://cdn.hipwallpaper.com/i/60/9/eLQcG4.jpg);
     display: grid;
@@ -27,18 +34,15 @@
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
 }
-.col {
-border-radius: 5px;
-}
 .datTag {
     margin: 0 auto;
     font-size: 22px;
     
 }
 .welcome{
-    margin: 0 auto;
     font-size: 42px;
-    color: #3483F6
+    color: #3483F6;
+    margin-top: 60px;
 }
 .icon {
     background-color: black;
@@ -49,9 +53,7 @@ border-radius: 5px;
     margin: 0 auto;
     color: white;
 }
-.profile {
 
-}
-/* 
-    * {border: red 2px solid;
-} */
+ 
+    /* * {border: red 2px solid;
+}  */

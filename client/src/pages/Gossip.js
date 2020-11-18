@@ -82,9 +82,9 @@ export default class Gossip extends Component {
                       />
                     </form>
                       {this.state.comments.map((comment, index) => (
-                        <h3 key={index}>
+                        <h5 key={index}>
                           {comment.comment}
-                        </h3>
+                        </h5>
                       ))}
                         <p>Likes</p>
                         <p>{post.popularity_rating}</p>

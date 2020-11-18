@@ -38,7 +38,7 @@ import { __ShowComments } from '../services/CommentService'
               <section className="row">
                 {posts.length ? (
                   posts.map((post) => (
-                    <div className="col s6 style={{'border-radius':'5px'}}" 
+                    <div className="col s6 " 
                       key={post._id}
                       onClick={() => this.props.history.push(`/Gossip/${post._id}`)}>
                         <div className="card">
