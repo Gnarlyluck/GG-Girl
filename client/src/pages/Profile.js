@@ -43,12 +43,14 @@ export default class Profile extends Component {
             <div>
               {this.state.posts.map((post) => (
                 <div className="col s5" key={post._id}
-                onClick={() => this.props.history.push(`/Gossip/${post._id}`)}>
+                  onClick={() => this.props.history.push(`/Gossip/${post._id}`)}>
                   <div className="card">
                     <div className="card-image">
                       <img src={post.image_url} alt="post" minHeight="25vh"/>
-                      <h3 className="card-title" >{post.title}</h3>
-                      <p className="card-content">{post.description}</p>
+                      <span className="card-title" >{post.title}</span>
+                    </div>
+                    <div>
+                      <p className="card-content pink darken-4">{post.description}</p>
                     </div>
                   </div>
                   <div className="card-content">
@@ -65,7 +67,7 @@ export default class Profile extends Component {
               ))}
             </div>
           ) : (
-            <div>No Gossip, Yet...</div>
+          <div>No Gossip, Yet...</div>
           )}
         </div>
       </div>

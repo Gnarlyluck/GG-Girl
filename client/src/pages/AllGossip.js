@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { __GetPosts} from '../services/PostServices'
 import { __ShowComments } from '../services/CommentService'
 
-class AllGossip extends Component {
+  class AllGossip extends Component {
     constructor() {
         super()
         this.state = {
@@ -10,7 +10,7 @@ class AllGossip extends Component {
           currentPage: 1
         }
       }
-    
+
       componentDidMount() {
         this.getPosts()
       }
@@ -24,8 +24,6 @@ class AllGossip extends Component {
         }
       }
 
-
-    
       incrementPage = () =>
         this.setState(
           (prevstate) => ({ currentPage: prevstate.currentPage + 1 }),
@@ -34,15 +32,15 @@ class AllGossip extends Component {
     
       render() {
         const { posts } = this.state
-        return (
-          <div className="AllGossip">
-            <h2 className="pop">Popular Posts</h2>
-            <section className="row">
-              {posts.length ? (
-                posts.map((post) => (
-                <div className="col s6" 
-                    key={post._id}
-                    onClick={() => this.props.history.push(`/Gossip/${post._id}`)}>
+          return (
+            <div className="AllGossip">
+              <h2 className="pop">Popular Posts</h2>
+              <section className="row">
+                {posts.length ? (
+                  posts.map((post) => (
+                    <div className="col s6 style={{'border-radius':'5px'}}" 
+                      key={post._id}
+                      onClick={() => this.props.history.push(`/Gossip/${post._id}`)}>
                         <div className="card">
                           <div className="card-image">
                             <img  src={post.image_url} alt="post"/>
@@ -58,19 +56,25 @@ class AllGossip extends Component {
                             <p>{post.popularity_rating}</p>
                           </div>
                         </div>
-                  </div>
-                      ))
-              ) : (
-                <h3>No Posts</h3>
-              )}
-              <button onClick={this.incrementPage}
-              className="btn waves-effect waves-light pink darken-4" type="submit" name="action" >
-              <i className="material-icons right">send</i>
-              Load More</button>
-            </section>
-          </div>
-        )
+                    </div>
+                  ))
+                ) : (
+                  <h3>No Posts</h3>
+                )}
+                <button onClick={this.incrementPage}
+                  className="btn waves-effect waves-light pink darken-4" 
+                  type="submit" 
+                  name="action" 
+                >
+                  <i className="material-icons right">
+                    send
+                  </i>
+                  Load More
+                </button>
+              </section>
+            </div>
+          )
       }
-    }
+  }
     
 export default AllGossip

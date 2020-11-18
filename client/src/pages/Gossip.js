@@ -20,7 +20,7 @@ export default class Gossip extends Component {
         this.getPost()
       }
 
-      handleChange = ({ target }) => {
+    handleChange = ({ target }) => {
         this.setState({ [target.name]: target.value })
     }
 
@@ -31,12 +31,11 @@ export default class Gossip extends Component {
           await __PostComment (this.state,  
             this.props.currentUser._id, 
             this.props.match.params.post_id)
-
-          this.props.history.push('comments')
+            this.props.history.push('comments')
       }catch (error){
           throw error
       }
-  }
+    }
  
     showComments = async () => {
       try{
@@ -47,51 +46,50 @@ export default class Gossip extends Component {
       }
     }
 
-      getPost = async () => {
-        try {
-          const post = await __GetPost(this.props.match.params.post_id)
-          this.setState({ post })
-        } catch (error) {
-          console.log(error)
-        }
+    getPost = async () => {
+      try {
+        const post = await __GetPost(this.props.match.params.post_id)
+        this.setState({ post })
+      } catch (error) {
+        console.log(error)
       }
+    }
 
-      render(){
-        const { post, comment } = this.state
-        if (this.state.post) {
-          return (
-            <div className="Gossip">
-              <div className="row"> 
-                <div className="col s6  ">
-                  <div className="card">
-                    <div className="card-image">
-                      <img src={post.image_url} alt="post" />
-                      <h2>{post.title}</h2>
-                    </div>
-                    <div className="card-content">
-                      <p>{post.description}</p>
-                    </div>
-                      <div className="card-action">
-                        <p onClick={this.showComments} >Comments </p>
-                          <form onSubmit={this.handleSubmit}>
-                            <TextInput 
-                              name="comment"
-                              value={comment}
-                              onChange={this.handleChange}
-                              placeholder="Write a comment"
-                              type="text"
-                            />
-                          </form>
-                        {this.state.comments.map((comment, index) => (
-                              <h3 key={index}>
-                                {
-                                comment.comment}
-                              </h3>
-                        ))}
+    render(){
+      const { post, comment } = this.state
+      if (this.state.post) {
+        return (
+          <div className="Gossip">
+            <div className="row"> 
+              <div className="col s6  ">
+                <div className="card">
+                  <div className="card-image">
+                    <img src={post.image_url} alt="post" />
+                    <span className="card-title">{post.title}</span>
+                  </div>
+                  <div className="card-content pink darken-4">
+                    <p>{post.description}</p>
+                  </div>
+                  <div className="card-action pink darken-4">
+                    <p onClick={this.showComments} >Comments </p>
+                    <form onSubmit={this.handleSubmit}>
+                      <TextInput 
+                        name="comment"
+                        value={comment}
+                        onChange={this.handleChange}
+                        placeholder="Write a comment"
+                        type="text"
+                      />
+                    </form>
+                      {this.state.comments.map((comment, index) => (
+                        <h3 key={index}>
+                          {comment.comment}
+                        </h3>
+                      ))}
                         <p>Likes</p>
                         <p>{post.popularity_rating}</p>
-                      </div>
                   </div>
+                </div>
                   <div>
                     {post.comments.length ? (
                       post.comments.map((comment, index) => (
@@ -100,16 +98,16 @@ export default class Gossip extends Component {
                           <p>{comment.comment}</p>
                         </li>
                       ))
-                      ) : (
-                        <h3>No Comments</h3>
-                        )}
-                        </div>
+                    ) : (
+                      <h3>No Comments</h3>
+                    )}
                   </div>
-              </div>
+                </div>
             </div>
-          )
-        }
-        return <h3>Loading...</h3>
+          </div>
+        )
       }
-    }
+    return <h3>Loading...</h3>
+  }
+}
     

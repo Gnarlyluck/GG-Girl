@@ -31,29 +31,29 @@ export default class SignIn extends Component {
     }
     render() {
         const { email, password } = this.state
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <TextInput
-                    placeholder="Your Email"
-                    name="email"
-                    type="email"
-                    value={email}
-                    onChange={this.handleChange}
-                    />
-                    <TextInput
-                    placeholder="Password"
-                    name="password"
-                    type="password"
-                    value={password}
-                    onChange={this.handleChange}
-                    />
-                    <div>
-                        <button>Sign In</button>
-                    </div>
-                {this.state.formError ? <p>Error While Logging In</p> : <p></p>}
-                </form>
-            </div>
-        )
+            return (
+                <div className="signIn">
+                    <form onSubmit={this.handleSubmit}>
+                        <TextInput
+                        placeholder="Your Email"
+                        name="email"
+                        type="email"
+                        value={email}
+                        onChange={this.handleChange}
+                        />
+                        <TextInput
+                        placeholder="Password"
+                        name="password"
+                        type="password"
+                        value={password}
+                        onChange={this.handleChange}
+                        />
+                            <div>
+                                <button>Sign In</button>
+                            </div>
+                            {this.state.formError ? <p>Error While Logging In</p> : <p></p>}
+                    </form>
+                </div>
+            )
     }
 }

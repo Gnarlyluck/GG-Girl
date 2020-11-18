@@ -29,43 +29,42 @@ class UploadPage extends Component {
 
     render() {
         const{ title, location, image_url, description } = this.state
-       return (
-        <div className="upload">
-          <div>
-               <form onSubmit={this.handleSubmit}>
-                   <TextInput 
-                   name="title"
-                   value={title}
-                   onChange={this.handleChange}
-                   placeholder="Title"
-                   />
-                    <TextInput 
-                   name="location"
-                   value={location}
-                   onChange={this.handleChange}
-                   placeholder="Location"
-                   /> 
-                   <TextInput 
-                   name="image_url"
-                   value={image_url}
-                   onChange={this.handleChange}
-                   placeholder="Upload your Image URL here "
-                   />
-                    <TextInput 
-                   name="description"
-                   value={description}
-                   onChange={this.handleChange}
-                   placeholder="Description"
-                   fieldType="textfield"
-                   />
-                   <button className="btn waves-effect waves-light pink darken-4" type="submit" name="action" > 
-                      <i className="material-icons right">send</i>Upload</button>
-               </form>
-           </div>
-           
-        </div>
-       )
-   }
+        return (
+            <div className="upload">
+                <div>
+                    <form onSubmit={this.handleSubmit}>
+                        <TextInput 
+                        name="title"
+                        value={title}
+                        onChange={this.handleChange}
+                        placeholder="Title"
+                        />
+                        <TextInput 
+                        name="location"
+                        value={location}
+                        onChange={this.handleChange}
+                        placeholder="Location"
+                        /> 
+                        <TextInput 
+                        name="image_url"
+                        value={image_url}
+                        onChange={this.handleChange}
+                        placeholder="Upload your Image URL here "
+                        />
+                        <TextInput 
+                        name="description"
+                        value={description}
+                        onChange={this.handleChange}
+                        placeholder="Description"
+                        fieldType="textfield"
+                        />
+                        <button className="btn waves-effect waves-light pink darken-4" type="submit" name="action" > 
+                            <i className="material-icons right">send</i>Upload</button>
+                    </form>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default UploadPage

@@ -30,7 +30,7 @@ export default class Signup extends Component {
   render() {
     const { name, password, email } = this.state
     return (
-      <div>
+      <div className="signUp">
         <form onSubmit={this.handleSubmit}>
           <TextInput
             placeholder="Your Email"

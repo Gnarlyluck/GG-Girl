@@ -5,46 +5,46 @@ import { __GetPost, __UpdatePost } from '../services/PostServices'
 
 
 class Edit extends Component {
-   constructor() {
-       super()
-       this.state = {
-           title: '',
-           location: '',
-           image_url: '',
-           description: ''
-       }
-   }
+ constructor() {
+    super()
+        this.state = {
+            title: '',
+            location: '',
+            image_url: '',
+            description: ''
+        }
+}    
 
-   componentDidMount() {
+    componentDidMount() {
        this.getPost()
    }
-   getPost = async () => {
-       try {
-        const post = await __GetPost(this.props.match.params.post_id)
-        this.setState({
+    getPost = async () => {
+        try {
+            const post = await __GetPost(this.props.match.params.post_id)
+            this.setState({
             title: post.title,
             description: post.title,
             image_url: post.image_url,
             location: post.location 
-        })
-       } catch (error) {
-           throw error
-       }
-   }
+            })
+        } catch (error) {
+        throw error
+        }
+    }
 
-   handleChange = ({ target }) => {
-       this.setState({ [target.name]: target.value })
-   }
+    handleChange = ({ target }) => {
+        this.setState({ [target.name]: target.value })
+    }
 
-   handleSubmit = async (event) => {
-       event.preventDefault()
-       try{
-           await __UpdatePost(this.state, this.props.match.params.post_id)
-           this.props.history.push('/profile')
-       } catch (error) {
-           throw error
-       }
-   }
+    handleSubmit = async (event) => {
+        event.preventDefault()
+        try{
+            await __UpdatePost(this.state, this.props.match.params.post_id)
+            this.props.history.push('/profile')
+        }   catch (error) {
+            throw error
+        }
+    }
 
     render() {
         const{ title, location, image_url, description } = this.state
@@ -79,8 +79,8 @@ class Edit extends Component {
                    <button>Edit</button>
                </form>
            </div>
-       )
-   }
+        )
+    }
 }
 
 export default Edit

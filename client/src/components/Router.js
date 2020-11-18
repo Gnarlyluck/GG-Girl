@@ -58,6 +58,7 @@ class Router extends Component {
                     <h3>Loading...</h3>
                   ) : (
                     <Layout {...this.props}
+                    toggleAuthenticated={this.toggleAuthenticated}
                     currentUser={this.state.currentUser}
                     authenticated={this.state.authenticated}
                   >

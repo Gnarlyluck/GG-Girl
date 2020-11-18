@@ -1,13 +1,15 @@
 import React from 'react'
 import Nav from './Nav'
 
-export default ({ children, authenticated, currentUser }) => (
+export default ( props ) => (
   <div>
     <Nav
-      authenticated={authenticated}
-      currentUser={currentUser}
+      {...props}
+      authenticated={props.authenticated}
+      currentUser={props.currentUser}
       className="header-elevated"
+      toggleAuthenticated={props.toggleAuthenticated}
     />
-    {children}
+    {props.children}
   </div>
 )
