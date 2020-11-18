@@ -15,11 +15,11 @@ app.use(logger('dev'))
 app.use(helmet({ constentSecurityPolicy: false }))
 app.use(cors())
 app.use(bodyParser.json())
-app.use(express.static(path.join(_dirname, 'client', 'build')))
+app.use(express.static(path.join( __dirname, 'client', 'build')))
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('*', (req, res) => 
-res.sendFile(path.join(_dirname, 'client', 'build', 'index.html'))
+res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
 )
 app.get('/', (req, res) => res.send({ msg: 'Server Working' }))
 app.use('/api', GG_Router)

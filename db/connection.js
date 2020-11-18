@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
 
-const connection = mongoose.connect('mongodb://localhost:27017/XOXOGG',
-process.env.NODE_ENV === 'production'
+const connection = mongoose.connect( process.env.NODE_ENV === 'production'
 ? process.env.DATABASE_URL
-: '<Your local db connection>',
+: 'mongodb://localhost:27017/XOXOGG',
 {
   useNewUrlParser: true,
   useFindAndModify: true,
