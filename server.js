@@ -5,18 +5,22 @@ const bodyParser = require('body-parser')
 const logger = require('morgan')
 const connection = require('./db/connection')
 const helmet = require('helmet')
-
+const path = require('path')
 const PORT = process.env.PORT || 3001
 
 
 const app = express()
 
 app.use(logger('dev'))
-app.use(helmet())
+app.use(helmet({ constentSecurityPolicy: false }))
 app.use(cors())
 app.use(bodyParser.json())
+app.use(express.static(path.join(_dirname, 'client', 'build')))
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.get('*', (req, res) => 
+res.sendFile(path.join(_dirname, 'client', 'build', 'index.html'))
+)
 app.get('/', (req, res) => res.send({ msg: 'Server Working' }))
 app.use('/api', GG_Router)
 
